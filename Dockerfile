@@ -1,0 +1,9 @@
+FROM alpine:latest
+WORKDIR /app
+ARG USERFILENAME
+ENV USERFILENAME=${USERFILENAME}
+COPY ${MY_FILE} /app
+RUN apk update
+RUN ls -la
+RUN cat "${USERFILENAME}"
+CMD ["/bin/sh"]
